@@ -4,7 +4,14 @@ import joblib
 import pandas as pd
 
 app = Flask(__name__)
-CORS(app)
+CORS(
+    app,
+    resources={
+        r"/*": {
+            "origins": "*"
+        }
+    }
+)
 
 # Load trained model
 model = joblib.load("models/model.pkl")
@@ -16,7 +23,7 @@ def home():
     return "Crop Price Prediction Backend Running"
 
 
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["POST", "OPTIONS"])
 def predict():
     try:
         data = request.json
