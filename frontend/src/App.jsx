@@ -51,7 +51,7 @@ function App() {
 
     try {
       const res = await axios.post(
-        "https://crop-price-backend.onrender.com/predict",
+        "https://crop-prise-pridiction.onrender.com/predict",
         form
       );
 
