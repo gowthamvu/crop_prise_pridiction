@@ -51,7 +51,7 @@ function App() {
 
     try {
       const res = await axios.post(
-        "http://127.0.0.1:5002/predict",
+        "https://crop-price-backend.onrender.com/predict",
         form
       );
 
